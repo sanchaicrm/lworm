@@ -1,0 +1,27 @@
+User: 
+  fields: 
+    name: text
+    password: text
+    active: boolean
+    
+  relations: 
+    many-to-many: 
+      roles: Role(user_roles)
+
+    many-to-one: 
+      group: Group
+
+Role:
+  fields:
+    name: text
+  relations: 
+    many-to-many: 
+      users: User(user_roles)
+
+Group: 
+  fields: 
+    name: text
+    
+  relations: 
+    one-to-many: 
+      users: User(group)
